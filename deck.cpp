@@ -2,7 +2,7 @@
 // Created by ponso00 on 3/27/2023.
 //
 #include <cstdlib>
-#include <random>
+#include <random> //should use later for better randomization
 
 #include <ctime>
 int card(int card){
