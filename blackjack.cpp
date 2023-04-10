@@ -3,6 +3,7 @@
 //
 using namespace std;
 #include <iostream>
+#include <synchapi.h>
 
 int card(int card); //card function(proto), returns the value of a card drawn from the deck
 void intro();
@@ -22,13 +23,10 @@ int dealerhand;
 
 
 int main() {
-/*    int card_face = 0; //placeholder crap to test card function
-    cout << card(card_face);
-    int card_face = 0;
-    cout << card(card_face) << endl;
-    cout << card(card_face) << endl;
-    cout << card(card_face) << endl;
-    cout << card(card_face) << endl;*/
+    int card_face = 0; //placeholder crap to test card function
+    //cout << card(card_face);
+    //int card_face = 0;
+    srand(time(0));
     intro();
     play();
 }
@@ -81,6 +79,7 @@ void play(){
     int card_face = 0;//variable just to get card from deck.cpp
     hand = card(card_face) + card(card_face);
     cout << "You have " << hand<< endl;
+    Sleep(500);
     checkdealer();
     hors();
 

@@ -5,12 +5,15 @@
 #include <random> //should use later for better randomization
 
 #include <ctime>
-int card(int card){
-    int i;
-    srand(time(0));
 
-    i = rand() % 52 + 1;
-    if(i>=1 && i<=4){
+
+
+int card(int card){
+    //int i;
+    int deck[52] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11};
+    card = deck [rand() % 52];
+    return card;
+    /*if(i>=1 && i<=4){
         return 2;
     }
     else if(i>=5 && i<=8){
@@ -39,5 +42,5 @@ int card(int card){
     }
     else{
         return 11;
-    }
+    }*/
 }
