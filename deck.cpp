@@ -39,5 +39,4 @@ int card(int card){
     else{
         return 11;
     }
-
 }
