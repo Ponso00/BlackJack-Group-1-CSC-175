@@ -31,7 +31,6 @@ int main() {
     cout << card(card_face) << endl;*/
     intro();
     play();
-
 }
 
 void intro(){

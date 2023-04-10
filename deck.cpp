@@ -8,6 +8,7 @@
 int card(int card){
     int i;
     srand(time(0));
+
     i = rand() % 52 + 1;
     if(i>=1 && i<=4){
         return 2;
