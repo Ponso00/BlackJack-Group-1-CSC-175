@@ -53,7 +53,7 @@ void checkdealer(){
     dealerhand = card(card_face) + card(card_face);
 
     if(dealerhand==21){
-        cout << "Dealer has blackjack! you lose";
+        cout << "Dealer has blackjack! you lose" <<endl;
         bet = 0;
 
         cout << "Play another round? y or n";
@@ -113,7 +113,7 @@ void hors(){
 
 void dealer2(){
     string again;
-    cout << "Dealer has " << dealerhand;
+    cout << "Dealer has " << dealerhand <<endl;
     while(dealerhand<hand){
         int card_face = 0;
         dealerhand = dealerhand + card(card_face);
@@ -131,7 +131,7 @@ void dealer2(){
         }
     }
     else if(dealerhand>21){
-        cout << "You win! " << bet*2 << " chips earned!";
+        cout << "You win! " << bet*2 << " chips earned!" <<endl;
         total+=bet*2;
         cout << "Play another round? y or n";
         cin >> again;
