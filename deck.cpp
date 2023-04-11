@@ -13,6 +13,9 @@ int card(int card){
     int deck[52] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11};
     card = deck [rand() % 52];
     return card;
+
+    //old system for choosing card from deck. Would've worked fine i just like the array better because we just learned about it,
+    //and its way cleaner and neater
     /*if(i>=1 && i<=4){
         return 2;
     }
