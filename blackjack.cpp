@@ -13,7 +13,7 @@ void play();
 void checkdealer();
 void hors();
 void dealer2();
-
+void lose();
 
 int total; //globals to fix and delete later
 int bet;
@@ -37,10 +37,10 @@ void intro(){
     cin>> total;
 }
 void gamble(){
-    cout << "How much would you like to bet this hand?";
+    cout << "How much would you like to bet this hand? Your have $" << total << " in total.";
     cin >> bet;
     while(bet>total){
-        cout << "bet less, you broke";
+        cout << "bet less, you broke"<< endl;
         cout << "How much would you like to bet this hand?";
         cin >> bet;
     }
@@ -53,23 +53,14 @@ void checkdealer(){
     dealerhand = card(card_face) + card(card_face);
 
     if(dealerhand==21){
-        cout << "Dealer has blackjack! you lose" <<endl;
-        bet = 0;
-
-        cout << "Play another round? y or n";
-        cin >> again;
-
-        if(again=="n"){
-            return;
-        }
-        else if(again == "y"){
-            play();
-        }
+        cout << "Dealer has blackjack! " <<endl;
+        lose();
     }
     else if(dealerhand==22){
         dealerhand=12;
     }
     else if(dealerhand<21){
+        //there doesn't really need to be anything here
     }
 }
 
@@ -96,15 +87,7 @@ void hors(){
         cout << "You have " << hand<< endl;
         if(hand>21){
             cout << "bust"<< endl;
-            cout << "Play another round? y or n";
-            cin >> again;
-
-            if(again=="n"){
-                return;
-            }
-            else if(again == "y"){
-                play();
-            }
+            lose();
         }
         hors();
     }
@@ -120,40 +103,50 @@ void dealer2(){
     }
     if(dealerhand<=21 && dealerhand > hand){
         cout << "Dealer wins!";
-        cout << "Play another round? y or n";
-        cin >> again;
-
-        if(again=="n"){
-            return;
-        }
-        else if(again == "y"){
-            play();
-        }
+        lose();
     }
-    else if(dealerhand>21){
-        cout << "You win! " << bet*2 << " chips earned!" <<endl;
+    else if(dealerhand>21){ // this is the only way you can win so no need for a win function
+        cout << "You win! " << bet*2 << " chips earned! You now have $" << total+(bet*2) <<endl;
         total+=bet*2;
         cout << "Play another round? y or n";
         cin >> again;
 
         if(again=="n"){
-            return;
+            cout << "You walked away with $" << total << ".";
+            std::abort();
         }
         else if(again == "y"){
             play();
         }
     }
     else if(dealerhand==hand){
-        cout << "The hand is a push! you get " << bet << " chips back" << endl;
+        cout << "The hand is a push! you get " << bet << " chips back. You now have $" << total+bet << endl;
         total = total +bet;
         cout << "Play another round? y or n";
         cin >> again;
 
         if(again=="n"){
-            return;
+            cout << "You walked away with $" << total << ".";
+            std::abort();
         }
         else if(again == "y"){
             play();
         }
+    }
+}
+
+void lose(){
+    string again;
+    cout << "You lose" <<endl;
+    bet = 0;
+
+    cout << "Play another round? y or n";
+    cin >> again;
+    if(again=="n"){
+        cout << "You walked away with $" << total << ".";
+        std::abort();
+    }
+    else if(again == "y"){
+        play();
     }
 }
