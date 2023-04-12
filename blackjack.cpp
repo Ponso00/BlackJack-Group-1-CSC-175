@@ -14,6 +14,7 @@ void checkdealer();
 void hors();
 void dealer2();
 void lose();
+int draw(int face);
 
 int total; //globals to fix and delete later
 int bet;
@@ -32,7 +33,22 @@ int main() {
 }
 
 void intro(){
-    cout << "Welcome to black jack" << endl;
+    cout << "Welcome to black jack!" << endl;
+    cout << "               :              " << endl;
+    cout << "             .#@+             " << endl;
+    cout << "           :*@@@@%=           " << endl;
+    cout << "        .=%@@@@@@@@@+:        " << endl;
+    cout << "     :+%@@@@@@@@@@@@@@%+:     " << endl;
+    cout << "   =%@@@@@@@@@@@@@@@@@@@@%=   " << endl;
+    cout << " .%@@@@@@@@@@@@@@@@@@@@@@@@%. " << endl;
+    cout << " *@@@@@@@@@@@@@@@@@@@@@@@@@@# " << endl;
+    cout << " %@@@@@@@@@@@@@@@@@@@@@@@@@@@ " << endl;
+    cout << " +@@@@@@@@@@@@@@@@@@@@@@@@@@* " << endl;
+    cout << "  %@@@@@@@@@@@%%@@@@@@@@@@@%. " << endl;
+    cout << "   +@@@@@@@@*:**:#@@@@@@@@*.  " << endl;
+    cout << "     :=++=-  .@@: .-=++=-     " << endl;
+    cout << "            .%@@@:            " << endl;
+    cout << "           :+*****-           " << endl;
     cout<< "How many chips would you like to start with?";
     cin>> total;
 }
@@ -66,14 +82,37 @@ void checkdealer(){
 
 void play(){
     gamble(); //call gamble function
-
-    int card_face = 0;//variable just to get card from deck.cpp
-    hand = card(card_face) + card(card_face);
+    hand =0;
+    int card_face = 0;//variable just to get card from draw
+    hand = draw(card_face) + draw(card_face);
     cout << "You have " << hand<< endl;
     Sleep(500);
     checkdealer();
     hors();
 
+}
+
+int draw(int face){
+    int card_face = 0;
+    int choice;
+    face = card(card_face); //call to get card from deck.cpp
+    if(face==11){
+        Sleep(500);
+        cout << "You got an ace. Do you want it to be an 11 (hand total= " << hand+11 << ") or a 1 (" << "hand total= " <<hand+1<<"?"<<endl;
+        cout << "1 or 11?";
+        cin >> choice;
+        if(choice==1){
+            face=1;
+            return face;
+        }
+        else if(choice==11){
+            face=11;
+            return face;
+        }
+    }
+    else{
+        return face;
+    }
 }
 
 void hors(){
@@ -100,6 +139,7 @@ void dealer2(){
     while(dealerhand<hand){
         int card_face = 0;
         dealerhand = dealerhand + card(card_face);
+        cout << "Dealer drew a card and now has " << dealerhand <<endl;
     }
     if(dealerhand<=21 && dealerhand > hand){
         cout << "Dealer wins!";
