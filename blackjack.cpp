@@ -122,7 +122,7 @@ void hors(){
     cout << "Hit or Stand? (h or s)";
     cin >> choice;
     while(choice=="h"){
-        hand+=card(card_face);
+        hand+=draw(card_face);
         cout << "You have " << hand<< endl;
         if(hand>21){
             cout << "bust"<< endl;
