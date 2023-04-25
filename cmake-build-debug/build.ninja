@@ -71,6 +71,7 @@ build CMakeFiles/BlackJack_Group_1_CSC_175.dir/deck.cpp.obj: CXX_COMPILER__Black
 
 build BlackJack_Group_1_CSC_175.exe: CXX_EXECUTABLE_LINKER__BlackJack_Group_1_CSC_175_Debug CMakeFiles/BlackJack_Group_1_CSC_175.dir/blackjack.cpp.obj CMakeFiles/BlackJack_Group_1_CSC_175.dir/deck.cpp.obj
   FLAGS = -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\BlackJack_Group_1_CSC_175.dir
   POST_BUILD = cd .
